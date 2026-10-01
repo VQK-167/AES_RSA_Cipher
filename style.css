@@ -1,0 +1,313 @@
+/* =========================
+   CÀI ĐẶT CHUNG
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, sans-serif;
+
+    background-color: #f2f4f7;
+
+    color: #222;
+}
+
+
+/* =========================
+   KHUNG CHÍNH
+   ========================= */
+
+.container {
+    width: 700px;
+
+    max-width: 90%;
+
+    margin: 50px auto;
+
+    padding: 30px;
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* =========================
+   TIÊU ĐỀ
+   ========================= */
+
+h1 {
+    text-align: center;
+
+    margin-top: 0;
+
+    margin-bottom: 30px;
+
+    font-size: 28px;
+}
+
+
+/* =========================
+   NHÓM FORM
+   ========================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   LABEL
+   ========================= */
+
+label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   SELECT + INPUT + TEXTAREA
+   ========================= */
+
+select,
+input[type="text"],
+input[type="number"],
+textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    font-family: Arial, sans-serif;
+
+    outline: none;
+}
+
+
+/* Khi click vào ô */
+
+select:focus,
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+
+    border-color: #555;
+}
+
+
+/* =========================
+   TEXTAREA
+   ========================= */
+
+textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+/* =========================
+   RADIO BUTTON
+   ========================= */
+
+.radio-group {
+
+    display: flex;
+
+    gap: 25px;
+}
+
+
+.radio-group label {
+
+    font-weight: normal;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    cursor: pointer;
+}
+
+
+.radio-group input {
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   NÚT
+   ========================= */
+
+.button-group {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin: 25px 0;
+}
+
+
+button {
+
+    padding: 12px 30px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background-color: #333;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+button:hover {
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   ẨN PHẦN KHÔNG SỬ DỤNG
+   ========================= */
+
+.hidden {
+
+    display: none;
+}
+
+
+/* =========================
+   AFFINE
+   ========================= */
+
+.affine-inputs {
+
+    display: flex;
+
+    gap: 20px;
+}
+
+
+.affine-inputs > div {
+
+    flex: 1;
+}
+
+
+/* =========================
+   HILL MATRIX
+   ========================= */
+
+.hill-matrix {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    width: 250px;
+
+    margin-top: 10px;
+}
+
+
+.hill-matrix input {
+
+    width: 100%;
+}
+
+
+/* =========================
+   CHÚ THÍCH
+   ========================= */
+
+small {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+
+        width: 95%;
+
+        padding: 20px;
+
+        margin: 20px auto;
+    }
+
+
+    .radio-group {
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .affine-inputs {
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .button-group {
+
+        flex-direction: column;
+    }
+
+
+    button {
+
+        width: 100%;
+    }
+
+}

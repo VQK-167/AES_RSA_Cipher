@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ứng dụng mã hóa thông tin</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Ứng dụng mã hóa thông tin</h1>
+
+        <!-- ========================= -->
+        <!-- CHỌN NHÓM MÃ HÓA -->
+        <!-- ========================= -->
+
+        <div class="form-group">
+
+            <label for="cipherGroup">
+                Loại mã hóa:
+            </label>
+
+            <select id="cipherGroup">
+
+                <option value="classical">
+                    Mã hóa cổ điển
+                </option>
+
+                <option value="modern">
+                    Mã hóa hiện đại
+                </option>
+
+                <option value="public">
+                    Mã hóa công khai
+                </option>
+
+                <option value="hash">
+                    Hàm băm
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- CHỌN THUẬT TOÁN -->
+        <!-- ========================= -->
+
+        <div class="form-group">
+
+            <label for="cipherType">
+                Thuật toán:
+            </label>
+
+            <select id="cipherType">
+
+                <!-- Mã hóa cổ điển -->
+
+                <option value="caesar">
+                    Dịch vòng
+                </option>
+
+                <option value="substitution">
+                    Mã thay thế
+                </option>
+
+                <option value="vigenere">
+                    Mã Vigenere
+                </option>
+
+                <option value="affine">
+                    Mã Affine
+                </option>
+
+                <option value="hill">
+                    Mã Hill
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- CHỌN HỆ Z26 / Z29 -->
+        <!-- ========================= -->
+
+        <div class="form-group" id="alphabetGroup">
+
+            <label>
+                Hệ mã:
+            </label>
+
+            <div class="radio-group">
+
+                <label>
+                    <input type="radio" name="alphabet" value="26" checked>
+
+                    Z26 - Tiếng Anh
+                </label>
+
+
+                <label>
+                    <input type="radio" name="alphabet" value="29">
+
+                    Z29 - Tiếng Việt
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- BẢN RÕ -->
+        <!-- ========================= -->
+
+        <div class="form-group">
+
+            <label for="plainText">
+                Bản rõ:
+            </label>
+
+            <textarea id="plainText" placeholder="Nhập bản rõ..."></textarea>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- KHU VỰC NHẬP KHÓA -->
+        <!-- ========================= -->
+
+        <div class="form-group" id="keyGroup">
+
+            <label>
+                Khóa:
+            </label>
+
+
+            <!-- ===================== -->
+            <!-- KHÓA DỊCH VÒNG -->
+            <!-- ===================== -->
+
+            <div id="caesarKey">
+
+                <input type="number" id="shiftKey" placeholder="Nhập khóa K...">
+
+            </div>
+
+
+            <!-- ===================== -->
+            <!-- KHÓA MÃ THAY THẾ -->
+            <!-- ===================== -->
+
+            <div id="substitutionKey" class="hidden">
+
+                <input type="text" id="substitutionAlphabet" placeholder="Nhập bảng thay thế...">
+
+                <small>
+                    Ví dụ Z26:
+                    QWERTYUIOPASDFGHJKLZXCVBNM
+                </small>
+
+            </div>
+
+
+            <!-- ===================== -->
+            <!-- KHÓA VIGENERE -->
+            <!-- ===================== -->
+
+            <div id="vigenereKey" class="hidden">
+
+                <input type="text" id="vigenereKeyword" placeholder="Nhập khóa Vigenere...">
+
+            </div>
+
+
+            <!-- ===================== -->
+            <!-- KHÓA AFFINE -->
+            <!-- ===================== -->
+
+            <div id="affineKey" class="hidden">
+
+                <div class="affine-inputs">
+
+                    <div>
+
+                        <label for="affineA">
+                            a:
+                        </label>
+
+                        <input type="number" id="affineA" placeholder="Nhập a">
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="affineB">
+                            b:
+                        </label>
+
+                        <input type="number" id="affineB" placeholder="Nhập b">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ===================== -->
+            <!-- KHÓA HILL -->
+            <!-- ===================== -->
+
+            <div id="hillKey" class="hidden">
+
+                <label>
+                    Ma trận khóa 2 × 2:
+                </label>
+
+                <div class="hill-matrix">
+
+                    <input type="number" id="hill11" placeholder="a">
+
+                    <input type="number" id="hill12" placeholder="b">
+
+                    <input type="number" id="hill21" placeholder="c">
+
+                    <input type="number" id="hill22" placeholder="d">
+
+                </div>
+
+            </div>
+
+        <!-- ===================== -->
+        <!-- KHÓA DES -->
+        <!-- ===================== -->
+
+        <div id="desKey" class="hidden">
+
+            <label for="desKeyInput">
+                Khóa DES (64-bit Hex):
+            </label>
+
+            <input type="text" id="desKeyInput" placeholder="Ví dụ: AABB09182736CCDD">
+
+        </div>
+
+        <!-- ===================== -->
+        <!-- KHÓA AES -->
+        <!-- ===================== -->
+
+        <div id="aesKey" class="hidden">
+
+            <label for="aesKeyInput">
+                Khóa AES-128 (16 ký tự):
+            </label>
+
+            <input type="text" id="aesKeyInput" maxlength="16" placeholder="Nhập 16 ký tự">
+
+        </div>
+
+        <div id="rsaInputs" class="hidden">
+            <label>p:</label>
+            <input type="number" id="rsaP" placeholder="Nhập p">
+
+            <label>q:</label>
+            <input type="number" id="rsaQ" placeholder="Nhập q">
+
+            <label>e:</label>
+            <input type="number" id="rsaE" placeholder="Nhập e">
+        </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- NÚT MÃ HÓA / GIẢI MÃ -->
+        <!-- ========================= -->
+
+        <div class="button-group">
+
+            <button id="encryptBtn" type="button">
+                Mã hóa
+            </button>
+
+
+            <button id="decryptBtn" type="button">
+                Giải mã
+            </button>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- BẢN MÃ -->
+        <!-- ========================= -->
+
+        <div class="form-group">
+
+            <label for="cipherText">
+                Bản mã:
+            </label>
+
+            <textarea id="cipherText" placeholder="Kết quả sẽ hiển thị ở đây (hoặc nhập bản mã để giải mã)..."></textarea>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
